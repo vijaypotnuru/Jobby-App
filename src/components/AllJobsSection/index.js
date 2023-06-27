@@ -74,7 +74,7 @@ class AllJobsSection extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const {searchInput, employmentTypes, salaryRange} = this.state
     const employmentTypesJoined = employmentTypes.join(',')
-    console.log(employmentTypesJoined)
+    // console.log(employmentTypesJoined)
 
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypesJoined}&minimum_package=${salaryRange}&search=${searchInput}`
 
@@ -88,7 +88,7 @@ class AllJobsSection extends Component {
 
     if (response.ok === true) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
+      //   console.log(fetchedData)
       const updatedData = fetchedData.jobs.map(eachJob => ({
         companyLogoUrl: eachJob.company_logo_url,
         employmentType: eachJob.employment_type,
@@ -181,7 +181,7 @@ class AllJobsSection extends Component {
   renderSuccessView = () => {
     const {allJobsData} = this.state
     const shouldShowJobsList = allJobsData.length > 0
-    console.log(allJobsData)
+    // console.log(allJobsData)
 
     return shouldShowJobsList ? (
       <div className="job-section-success-view">
